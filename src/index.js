@@ -15,7 +15,7 @@ document.getElementById("app").innerHTML = `
 Reducers <hr/>
 Specifies how the app state changes in response to actions sent to the store
 Reducers accept state & action as argument and returns the next state of the application
-(previousState, action ) = newState
+(previousState, action ) = newState 
 </div>
 `;
 
