@@ -20,10 +20,13 @@ Reducers accept state & action as argument and returns the next state of the app
 `;
 
 import {
+  applyMiddleware,
   bindActionCreators,
   combineReducers,
   legacy_createStore as createStore,
 } from "redux";
+
+import { createLogger } from "redux-logger";
 
 console.log("Redux");
 
@@ -123,12 +126,15 @@ const rootReducer = {
   cake: cakeReducer,
   iceCream: iceCreamReducer,
 };
-const store = createStore(combineReducers(rootReducer));
+// const applyMiddleware = applyMiddleware;
+const logger = createLogger();
+const store = createStore(
+  combineReducers(rootReducer),
+  applyMiddleware(logger)
+);
 console.log(store.getState());
 
-const unsubscribe = store.subscribe(() =>
-  console.log("cake & icecream current quatity", store.getState())
-);
+const unsubscribe = store.subscribe(() => {});
 
 // store.dispatch(orderCake());
 // store.dispatch(orderCake());
