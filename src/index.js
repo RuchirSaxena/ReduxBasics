@@ -15,15 +15,18 @@ document.getElementById("app").innerHTML = `
 Reducers <hr/>
 Specifies how the app state changes in response to actions sent to the store
 Reducers accept state & action as argument and returns the next state of the application
-(previousState, action ) = newState
+(previousState, action ) = newState 
 </div>
 `;
 
 import {
+  applyMiddleware,
   bindActionCreators,
   combineReducers,
   legacy_createStore as createStore,
 } from "redux";
+
+import { createLogger } from "redux-logger";
 
 console.log("Redux");
 
@@ -123,12 +126,15 @@ const rootReducer = {
   cake: cakeReducer,
   iceCream: iceCreamReducer,
 };
-const store = createStore(combineReducers(rootReducer));
+// const applyMiddleware = applyMiddleware;
+const logger = createLogger();
+const store = createStore(
+  combineReducers(rootReducer),
+  applyMiddleware(logger)
+);
 console.log(store.getState());
 
-const unsubscribe = store.subscribe(() =>
-  console.log("cake & icecream current quatity", store.getState())
-);
+const unsubscribe = store.subscribe(() => {});
 
 // store.dispatch(orderCake());
 // store.dispatch(orderCake());
