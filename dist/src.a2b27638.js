@@ -933,7 +933,7 @@ var intialState = {
   noOfIceCream: 20
 };
 
-// Action Name
+// Action Names
 var CAKE_ORDERED = "CAKE_ORDERED";
 var RESTOCK_CAKE = "RESTOCK_CAKE";
 var ICECREAM_ORDERED = "ICECREAM_ORDERED";

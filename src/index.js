@@ -33,7 +33,7 @@ const intialState = {
   noOfIceCream: 20,
 };
 
-// Action Name
+// Action Names
 const CAKE_ORDERED = "CAKE_ORDERED";
 const RESTOCK_CAKE = "RESTOCK_CAKE";
 const ICECREAM_ORDERED = "ICECREAM_ORDERED";
